@@ -50,7 +50,9 @@ g1
 
 В [документации на сайте пакета](http://docs.ggplot2.org) или в [шпаргалке](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf) выберите  подходящие систему координат (функции `coord_*`) и тему оформления. Координаты должны иметь   **фиксированное**  отношение (**ratio=1**) цены деления для оси y к цене деления x, а тема оформления должна быть с черно-белой (black-and-white) координатной сеткой.
 
-```{r proportional,echo=F}
+```{r proportional,echo=T}
+g2  <- g1 + coord_fixed(ratio=1)+theme_bw()
+g2
 ```
 
 
@@ -59,7 +61,8 @@ g1
 В [документации на сайте](http://docs.ggplot2.org) или в [шпаргалке](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf) выберите  подходящие систему координат (функции `coord_*`) и тему оформления. Координаты должны иметь   **фиксированное**  отношение (**ratio=-1**) цены деления для оси y к цене деления x, а тема оформления должна быть  (classic)  без координатной  сетки. Удалить названия осей.
 
 ```{r,echo=F}
-
+g3  <- g1 + coord_fixed(ratio=-1) + theme_classic() + labs(x=NULL, y=NULL)
+g3
 
 ```
 
@@ -68,5 +71,6 @@ g1
 При помощи `stat_function()` добавить график функции  5*sin(x)-8. Добавить название к графику.
 
 ```{r worm,echo=F}
-
+g4  <- g1 + coord_fixed(ratio=1) + theme_classic() + stat_function(fun=function (x) 5*sin(x)-8, color="red")  + ggtitle("Еда")
+g4
 ```
